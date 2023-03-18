@@ -38,7 +38,7 @@ public class Main {
 //            }
 
             for (int i = 0; i < 2; i++) {
-                if (pronosticos.get(i).ganador == resultados.get(i).ganador) {
+                if (pronosticos.get(i).ganador == resultados.get(i).getGanador()) {
                     puntaje++;
                 }
             }
