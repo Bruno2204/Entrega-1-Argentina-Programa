@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32538778-0abb-4931-b882-10c39240725c" name="Changes" comment="Entrega 1 simple">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Equipo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pronostico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/pronosticos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pronosticos.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/resultados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/resultados.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

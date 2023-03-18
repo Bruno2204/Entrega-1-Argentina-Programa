@@ -1,11 +1,5 @@
 package org.example;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import com.opencsv.bean.CsvBindByPosition;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,59 +9,60 @@ public class Main {
     public static void main(String[] args) {
 
         List <Partido> resultados = new ArrayList<Partido>();
-        List <Pronostico> pronosticos;
-//        List <Equipo> equipos = new ArrayList<Equipo>();
-//        equipos.add(new Equipo("Argentina"));
-//        equipos.add(new Equipo("Arabia Saudita"));
-//        equipos.add(new Equipo("Mexico"));
-//        equipos.add(new Equipo("Polonia"));
-        HashMap<String,Equipo> equipos = new HashMap<String,Equipo>();
-        equipos.put("Argentina",new Equipo("Argentina"));
-        equipos.put("Arabia Saudita",new Equipo("Arabia Saudita"));
-        equipos.put("Mexico",new Equipo("Mexico"));
-        equipos.put("Polonia",new Equipo("Polonia"));
-        int puntaje=0;
-        try {
-            FileReader fileResultados = new FileReader("src/main/resources/resultados.csv");
-            FileReader filePronosticos = new FileReader("src/main/resources/pronosticos.csv");
+        List <Pronostico> pronosticos = new ArrayList<Pronostico>();
 
-//            resultados = new CsvToBeanBuilder(fileResultados)
-//                    .withSkipLines(1)
-//                    .withType(Partido.class)
-//                    .build()
-//                    .parse();
-            pronosticos = new CsvToBeanBuilder(filePronosticos)
-                    .withSkipLines(1)
-                    .withType(Pronostico.class)
-                    .build()
-                    .parse();
+        try(BufferedReader brResultados = new BufferedReader(new FileReader("src/main/resources/resultados.csv"));
+            BufferedReader brPronosticos = new BufferedReader(new FileReader("src/main/resources/pronosticos.csv"))) {
 
-
-
-            BufferedReader brResultados = new BufferedReader(fileResultados);
             brResultados.readLine();
-            String line;
-            while ((line = brResultados.readLine()) != null){
-                String[] datos = line.split(",");
-                Equipo equipo1 = equipos.get(datos[0]);
-                int goles1 = Integer.parseInt(datos[1]);
-                int goles2 = Integer.parseInt(datos[2]);
-                Equipo equipo2 = equipos.get(datos[3]);
-                resultados.add(new Partido(equipo1,goles1,goles1,equipo2));
-            }
+            AddPartidos(resultados,brResultados);
 
-            brResultados.close();
+            brPronosticos.readLine();
+            AddPronosticos(pronosticos,brPronosticos);
 
-            for (int i = 0; i < resultados.size(); i++) {
-                if (pronosticos.get(i).ganador == resultados.get(i).getGanador()) {
-                    puntaje++;
-                }
-            }
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            System.out.println("Tu puntaje es: "+puntaje);
+            ObtenerPuntaje(pronosticos,resultados);
         }
+    }
+    public static void AddPartidos(List<Partido> lista,BufferedReader br){
+        String line;
+        try{
+            while ((line = br.readLine()) != null){
+                String[] datos = line.split(",");
+                Equipo equipo1 = Equipo.GetEquipo(datos[0]);
+                int goles1 = Integer.parseInt(datos[1]);
+                int goles2 = Integer.parseInt(datos[2]);
+                Equipo equipo2 = Equipo.GetEquipo(datos[3]);
+                lista.add(new Partido(equipo1,goles1,goles2,equipo2));
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void AddPronosticos(List<Pronostico> lista,BufferedReader br) {
+        String line;
+        try {
+            while (((line = br.readLine()) != null)) {
+                String[] datos = line.split(",");
+                Equipo equipo1 = Equipo.GetEquipo(datos[0]);
+                int ganador = Integer.parseInt(datos[1]);
+                Equipo equipo2 = Equipo.GetEquipo(datos[2]);
+                lista.add(new Pronostico(equipo1, ganador, equipo2));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void ObtenerPuntaje(List<Pronostico> pronosticos,List<Partido> resultados){
+        int puntaje = 0;
+        for (int i = 0; i < pronosticos.size(); i++) {
+            if (pronosticos.get(i).ganador == resultados.get(i).getGanador()) {
+                puntaje++;
+            }
+        }
+        System.out.println("Tu puntaje es: "+puntaje);
     }
 }

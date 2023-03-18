@@ -4,9 +4,15 @@ import com.opencsv.bean.CsvBindByPosition;
 
 public class Pronostico {
     @CsvBindByPosition(position = 0)
-    String equipo1;
+    private Equipo equipo1;
     @CsvBindByPosition(position = 1)
-    int ganador;
+    public int ganador;
     @CsvBindByPosition(position = 2)
-    String equipo2;
+    private Equipo equipo2;
+
+    public Pronostico(Equipo equipo1, int ganador,Equipo equipo2) {
+        this.equipo1 = equipo1;
+        this.ganador = ganador;
+        this.equipo2 = equipo2;
+    }
 }
