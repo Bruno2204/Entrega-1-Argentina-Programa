@@ -7,9 +7,7 @@
     <list default="true" id="32538778-0abb-4931-b882-10c39240725c" name="Changes" comment="Entrega 1 simple">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Equipo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Equipo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Partido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Pronostico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Pronostico.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +47,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Programacion/Java/Prueba_Dependencia",
+    "last_opened_file_path": "C:/Programacion/Java/Entrega_1",
     "run.code.analysis.last.selected.profile": "pProject Default"
   }
 }]]></component>
